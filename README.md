@@ -1,5 +1,13 @@
 # AffineMind
-**AffineMind** is a lightweight Retrieval-Augmented Generation (RAG) system designed to answer questions about formal methods and anomaly detection in cyber-physical systems. It leverages affine arithmetic, AACDDs, and symbolic modeling to provide explainable, research-grounded answers in real time.
+**AffineMind** is a lightweight Retrieval-Augmented Generation (RAG) system designed to answer questions about formal methods and anomaly detection in cyber-physical systems. The system focuses on the research regarding but not limited to the following papers:
+
+- Reliable and Real-Time Anomaly Detection for Safety-Relevant Systems
+  Hagen Heermann, Johannes Koch, Christoph Grimm
+  Proceedings of DVCON 2024 (Accepted for presentation)
+- Bridging the Gap Between Anomaly Detection and Runtime Verification: H-Classifiers
+  Hagen Heermann, Christoph Grimm
+  Proceedings of DATE 2025 (Accepted for presentation)
+
 
 ## Features
 - Embedding-based retrieval using SentenceTransformers
