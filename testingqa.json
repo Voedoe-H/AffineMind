@@ -1,0 +1,105 @@
+{
+    "testingQAPairs" : [
+        {
+            "Question" : "What role does affine arithmetic play in modeling uncertainty in cyber-physical systems?",
+            "Awnser" : "Affine arithmetic captures uncertainty by expressing variables as linear combinations of noise terms, maintaining dependencies and enabling symbolic reasoning during runtime analysis.",
+            "ID" : 1
+        },
+        {
+            "Question" : "How does the proposed method determine if a system transition is valid?",
+            "Awnser" : "It checks whether the transition satisfies both continuous and discrete consistency by solving linear inequality systems derived from the AACDD structure.",
+            "ID" : 2
+        },
+        {
+            "Question" : "Why are decision diagrams useful for representing hybrid system behavior?",
+            "Awnser" : "Decision diagrams compactly encode both Boolean and continuous state transitions, allowing symbolic simulation of all reachable states in hybrid automata.",
+            "ID" : 3
+        },
+        {
+            "Question" : "How does the system handle noisy measurements when checking consistency?",
+            "Awnser" : "Measurement noise is accounted for by introducing a tolerance range (±∆) around each measured value during the consistency check.",
+            "ID" : 4
+        },
+        {
+            "Question" : "In what way does the AACDD structure combine discrete and continuous information?",
+            "Awnser" : "AACDD leaves contain tuples of affine forms and Boolean states, allowing unified representation of hybrid states at a specific time step.",
+            "ID" : 5
+        },
+        {
+            "Question" : "Why is runtime performance a critical factor for anomaly detection in embedded systems?",
+            "Awnser" : "Because safety-relevant applications must make fast decisions to enter fail-safe states, requiring that consistency checks complete within real-time constraints.",
+            "ID" : 6
+        },
+        {
+            "Question" : "How does your method differ from statistical anomaly detection techniques like one-class SVMs?",
+            "Awnser" : "Unlike statistical methods, this approach uses a formal model to check if observed transitions fall within the modeled range, making it more explainable and predictable.",
+            "ID" : 7
+        },
+        {
+            "Question" : "What makes affine forms more suitable than intervals for this use case?",
+            "Awnser" : "Affine forms track dependencies between variables, providing tighter bounds than interval arithmetic, which assumes independence.",
+            "ID" : 8
+        },
+        {
+            "Question" : "What is a flow pipe in the context of this method?",
+            "Awnser" : "It is the set of all reachable continuous states over a time step, constructed using affine arithmetic to represent uncertainty.",
+            "ID" : 9
+        },
+        {
+            "Question" : "Why is early termination in the consistency algorithm important?",
+            "Awnser" : "It improves runtime by stopping as soon as a single consistent leaf in the AACDD is found, avoiding unnecessary computations.",
+            "ID" : 10
+        },
+        {
+            "Question" : "How does the method classify a transition as anomalous?",
+            "Awnser" : "If no leaf in the AACDD yields a consistent inequality system for the measurement, the transition is considered an outlier.",
+            "ID" : 11
+        },
+        {
+            "Question" : "What kind of hybrid systems can be represented with this technique?",
+            "Awnser" : "Systems with linear continuous dynamics and discrete transitions governed by linear predicates can be modeled.",
+            "ID" : 12
+        },
+        {
+            "Question" : "What are the computational trade-offs of using simplex solvers for consistency checks?",
+            "Awnser" : "While simplex solvers are efficient on average, worst-case complexity is exponential, though mitigated by parallelization and early exit strategies.",
+            "ID" : 13
+        },
+        {
+            "Question" : "In what situations might the model-based method struggle to detect anomalies?",
+            "Awnser" : "When measurement noise masks small parameter errors, the tolerance range ∆ may lead to undetected deviations.",
+            "ID" : 14
+        },
+        {
+            "Question" : "How does symbolic simulation contribute to building the AACDD?",
+            "Awnser" : "It simulates all transitions under the model, combining discrete and continuous dynamics into a tree structure for runtime use.",
+            "ID" : 15
+        },
+        {
+            "Question" : "Why is consistency checking split into discrete and continuous components?",
+            "Awnser" : "Because hybrid systems involve both logic-based transitions and continuous flows, each must be verified separately to ensure correctness.",
+            "ID" : 16
+        },
+        {
+            "Question" : "Why is consistency checking split into discrete and continuous components?",
+            "Awnser" : "Because hybrid systems involve both logic-based transitions and continuous flows, each must be verified separately to ensure correctness.",
+            "ID" : 17
+        },
+        {
+            "Question" : "How does your system respond to previously unseen input values?",
+            "Awnser" : "It checks whether these values are still consistent with the modeled transitions; if not, they are flagged as anomalies.",
+            "ID" : 18
+        },
+        {
+            "Question" : "How does your approach support explainability in anomaly detection?",
+            "Awnser" : "It can trace which affine forms and guard conditions were violated, providing a clear reason why a transition was rejected.",
+            "ID" : 19
+        },
+        {
+            "Question" : "Why is affine arithmetic preferred over zonotopes in your approach?",
+            "Awnser" : "While zonotopes are efficient for continuous states, affine arithmetic allows better integration with decision diagrams and discrete logic.",
+            "ID" : 20
+        }
+
+    ]
+}
