@@ -6,7 +6,6 @@ import numpy as np
 import faiss
 from llama_cpp import Llama
 from transformers import AutoTokenizer
-import testRAGPipe
 
 stTransformer = SentenceTransformer("all-MiniLM-L6-v2")
 llm = Llama(
@@ -35,11 +34,13 @@ def retrieve_context(query, top_k=6):
 def build_prompt(context_chunks, query):
     context_texts = [chunk for chunk, _ in context_chunks]
     context = "\n---\n".join(context_texts)
-    prompt = f"""You are an expert in formal methods and anomaly detection using affine arithmetic. Based on the provided context, answer the following question. Do not repeat the context in your response. If the answer cannot be derived from the context, simply say "The answer is not in the provided context.". Once you awnsered the question you can stop.
+    prompt = f"""You are a formal methods expert. Given the following context from technical documents, answer the user's question as clearly and precisely as possible.
+    
+    Only use information from the context below. If you cannot answer, say: "The answer is not in the provided context."
 
     Context:
     {context}
-
+    
     Question:
     {query}
     
@@ -49,7 +50,7 @@ def build_prompt(context_chunks, query):
 def answer_query(query):
     matches = retrieve_context(query)
     prompt = build_prompt(matches, query)
-    result = llm(prompt, max_tokens=500,temperature=0.1)
+    result = llm(prompt, max_tokens=500,temperature=0.2)
     answer = result["choices"][0]["text"].strip()
     
     formatted_context = "\n\n".join(
