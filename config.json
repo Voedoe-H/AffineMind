@@ -1,0 +1,7 @@
+{
+    "context_window_size" : 2048,
+    "number_runners" : 4,
+    "number_output_tokens": 300,
+    "temperature" : 0.7,
+    "number_retrived_texts" : 4
+}

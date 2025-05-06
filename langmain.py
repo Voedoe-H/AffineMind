@@ -1,13 +1,17 @@
 import json
 import gradio as gr
 from langchain_community.chat_models import ChatLlamaCpp
-from langchain.chains import LLMChain
 from langchain.docstore.document import Document
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 
 def load_data(filepath="snippets.json"):
+    """
+        Function that trys to load the corpus which is expected to be in a json file with one list of texts saved under the key "texts". On the other hand there is a list
+        of texts expected in the json file under the key "QuestionAwnsers" that contain strings of the form "Q?A" where Q is a question and A is an awnser.
+        The output is a list of langchains document objects.
+    """
     try:
         with open(filepath,"r",encoding="utf-8") as rdta:
             dta = json.load(rdta)
@@ -32,19 +36,22 @@ def load_data(filepath="snippets.json"):
     
     return []
 
-def build_QA_Chain(documents):
+def build_QA_Chain(documents,config):
+    """
+
+    """
     embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vectorstore = FAISS.from_documents(documents, embedding_model)
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+    retriever = vectorstore.as_retriever(search_kwargs={"k": config["number_retrived_texts"]})
 
     model = ChatLlamaCpp(
             model_path="models/tinyllama-1.1b-chat-v1.0.Q5_K_M.gguf",
-            n_ctx=2048,
-            n_threads=4,
-            temperature=0.7,
+            n_ctx = config["context_window_size"],
+            n_threads = config["number_runners"],
+            temperature= config["temperature"],
             n_batch=64,
             n_gpu_layers=0,
-            max_tokens=500,
+            max_tokens= config["number_output_tokens"],
             verbose=False
     )
         
@@ -61,9 +68,12 @@ def build_QA_Chain(documents):
 if __name__ == "__main__":
 
     documents = load_data()
+    with open("config.json","r") as rconf:
+        config = json.load(rconf)
+    print(config)
 
-    if documents:
-        qa_chain = build_QA_Chain(documents)
+    if documents and config :
+        qa_chain = build_QA_Chain(documents,config)
 
         def awnser_query(query):
             result = qa_chain.invoke({"query": query})
