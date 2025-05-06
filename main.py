@@ -47,6 +47,7 @@ def build_prompt(context_chunks, query):
     Awnser:
     """
     return prompt
+
 def answer_query(query):
     matches = retrieve_context(query)
     prompt = build_prompt(matches, query)
