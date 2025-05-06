@@ -1,4 +1,26 @@
 {
+    "texts" : [
+        "This paper addresses the challenge of real-time anomaly detection in safety-critical embedded systems, such as those found in the automotive domain. These systems must detect and respond to deviations from expected behavior to ensure operational safety.",
+        "To enable real-time and reliable detection, the authors propose a symbolic reachability analysis framework using a novel data structure: Affine Arithmetic Cartesian Decision Diagrams (AACDDs). AACDDs provide a compact and formal representation of possible system states and behaviors.",
+        "The approach uses symbolic simulation to capture the full range of valid system behavior. AACDDs are employed to represent this behavior compactly, supporting formal operations and efficient reasoning.",
+        "The method is evaluated using a Σ–Δ modulator as a case study. It is benchmarked against a traditional machine learning approach — the **One-Class Support Vector Machine (OCSVM)** — and shows superior performance in terms of reliability and interpretability, especially in real-time scenarios.",
+        "Safety-relevant systems, such as those in automotive and aerospace applications, must operate reliably under strict timing and correctness constraints. Traditional runtime verification techniques can ensure correctness but often fall short in identifying subtle anomalies caused by sensor drift, environment changes, or degraded components. This gap has prompted the need for a formal yet adaptive anomaly detection method that can work in real-time and under uncertainty.",
+        "Affine Arithmetic Cartesian Decision Diagrams (AACDDs) are data structures that represent hybrid system behavior by combining continuous dynamics (via affine forms) and discrete transitions (via decision diagrams).",
+        "Affine forms model variable uncertainty using central values and weighted noise symbols, allowing the expression of linear correlations between variables in hybrid systems.",
+        "Consistency checking evaluates if a systems state transition (continuous and discrete) aligns with the modeled constraints, defined by affine forms and decision paths.",
+        "The H-Classifier uses affine forms to quickly classify transitions at runtime by checking if they satisfy precomputed inequality systems, avoiding runtime optimization.",
+        "Affine forms are projected into a transition space using the Moore-Penrose pseudoinverse to allow direct evaluation of model-conforming behavior during classification.",
+        "Continuous consistency ensures measured values fall within affine ranges, while discrete consistency verifies alignment with guard conditions from the hybrid model.",
+        "Model-based anomaly detection uses formal system descriptions for consistency checks, while model-free approaches like OCSVM require large datasets and training.",
+        "The model-based approach, especially the H-Classifier, offers faster classification and better explainability than model-free methods, due to deterministic checks and model traceability.",
+        "Runtime performance is boosted by early exit once a valid transition is found and by the independence of checks, which allows parallel processing.",
+        "Noise symbols and bounds are integrated into inequality systems, enabling the model to handle measurement noise and minor parameter variations effectively.",
+        "The model-based method shows high accuracy (100% on correct data) and faster runtimes than OCSVM, with classification times suitable for real-time systems.",
+        "Due to bounded runtime and deterministic behavior, AACDDs and the H-Classifier are suitable for time-sensitive systems like fighter jets and predictive maintenance in CPS.",
+        "AACDD leaf nodes encode hybrid states as tuples of affine forms (continuous) and booleans (discrete), preserving correlations and allowing efficient evaluation.",
+        "Current limitations include evaluation of only single transitions. Extending to sequence-based (trajectory) analysis could improve anomaly classification granularity."
+    ],
+    
     "QuestionAwnsers" : [
         "What is an Affine Arithmetic Cartesian Decision Diagram (AACDD)? It's a data structure that represents hybrid system behaviors using affine forms for continuous states and decision diagrams for discrete transitions.",
         "What are affine forms and why are they used? Affine forms express variable ranges using a central value and weighted noise symbols, allowing correlated uncertainty modeling in hybrid systems.",
