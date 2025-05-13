@@ -1,0 +1,87 @@
+[
+  {
+    "subject": "AACDD",
+    "predicate": "isUsedFor",
+    "object": "real_time_anomaly_detection"
+  },
+  {
+    "subject": "AACDD",
+    "predicate": "represents",
+    "object": "correlated_state_regions"
+  },
+  {
+    "subject": "AACDD",
+    "predicate": "manages",
+    "object": "complexity"
+  },
+  {
+    "subject": "symbolic_simulation",
+    "predicate": "produces",
+    "object": "AADD"
+  },
+  {
+    "subject": "symbolic_simulation",
+    "predicate": "produces",
+    "object": "BDDA"
+  },
+  {
+    "subject": "AADD",
+    "predicate": "describes",
+    "object": "individual_variable_state"
+  },
+  {
+    "subject": "BDDA",
+    "predicate": "describes",
+    "object": "individual_variable_state"
+  },
+  {
+    "subject": "AADD",
+    "predicate": "doesNotRepresent",
+    "object": "coherent_correlated_description"
+  },
+  {
+    "subject": "BDDA",
+    "predicate": "doesNotRepresent",
+    "object": "coherent_correlated_description"
+  },
+  {
+    "subject": "AACDD",
+    "predicate": "definesExactly",
+    "object": "correlated_state_regions"
+  },
+  {
+    "subject": "symbolic_simulation",
+    "predicate": "isRunFor",
+    "object": "single_time_step"
+  },
+  {
+    "subject": "initial_state",
+    "predicate": "covers",
+    "object": "working_region"
+  },
+  {
+    "subject": "final_state",
+    "predicate": "isRepresentedBy",
+    "object": "AACDD"
+  },
+  {
+    "subject": "symbolic_simulation",
+    "predicate": "captures",
+    "object": "all_possible_consecutive_values"
+  },
+  {
+    "subject": "runtime",
+    "predicate": "uses",
+    "object": "initial_state_information"
+  },
+  {
+    "subject": "runtime",
+    "predicate": "uses",
+    "object": "AACDD_representation"
+  },
+  {
+    "subject": "runtime",
+    "predicate": "determines",
+    "object": "linear_inequality_system"
+  }
+]
